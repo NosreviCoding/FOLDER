@@ -1,0 +1,88 @@
+<hateskate>
+    <product>
+        <Name>King Tyshawn Snoopy Deck</Name>
+        <Category>board</Category>
+        <Photo>products/SnoopyDeck.jpg</Photo>
+        <Price>68.95</Price>
+     </product>
+
+     <product> 
+        <Name>King Nakel Doves Deck</Name>
+        <Category>board</Category>
+        <Photo>products/KingNakel.jpg </Photo>
+        <Price>68.95</Price>
+     </product>
+
+     <product>
+        <Name>Chocolate Roberts Ink Blot TWIN TIP Deck</Name>
+        <Category>board</Category>
+        <Photo>products/Chocolate.jpg </Photo>
+        <Price>68.95</Price>
+     </product>
+
+     <product>
+        <Name>Girl Davis 93 Til Palette Deck</Name>
+        <Category>board</Category>
+        <Photo>products/Girl.jpg</Photo>
+        <Price>68.95</Price>
+     </product>
+     <!-- End of Boards-->
+
+     <product>
+        <Name>Ace AF1 Truck Blue</Name>
+        <Category>trucks</Category>
+        <Photo>products/Ace AF1 Truck Blue.jpg</Photo>
+        <Price>31.99</Price>
+     </product>
+     
+     <product>
+        <Name>Ace AF1 Truck Black</Name>
+        <Category>trucks</Category>
+        <Photo>products/Ace AF1 Truck Black.jpg</Photo>
+        <Price>31.99</Price>
+     </product>
+     
+     <product>
+        <Name>Ace AF1 Truck Gold</Name>
+        <Category>trucks</Category>
+        <Photo>products/Ace AF1 Truck Gold.jpg</Photo>
+        <Price>31.99</Price>
+     </product>
+     
+     <product>
+        <Name>Ace AF1 Truck Polished</Name>
+        <Category>trucks</Category>
+        <Photo>products/Ace AF1 Truck Polished.jpg</Photo>
+        <Price>31.99</Price>
+     </product>
+     <!-- End of Trucks-->
+
+     <product>
+        <Name>Chocolate Halftime Wheels</Name>
+        <Category>wheels</Category>
+        <Photo>products/ChocolateWheels.jpg</Photo>
+        <Price>44.95</Price>
+     </product>
+
+     <product>
+        <Name>Dogtown K-9 Smooths 92a Wheels</Name>
+        <Category>wheels</Category>
+        <Photo>products/Dogtown.jpg</Photo>
+        <Price>44.95</Price>
+     </product>
+
+     <product>
+        <Name>Mini Logo A-Cut "2" White 101a Wheels</Name>
+        <Category>wheels</Category>
+        <Photo>products/MiniLogo.jpg</Photo>
+        <Price>44.95</Price>
+     </product>
+
+     <product>
+        <Name>Powell Peralta Nano Cubic Dragon 97a Wheels</Name>
+        <Category>wheels</Category>
+        <Photo>products/Powell.jpg</Photo>
+        <Price>44.95</Price>
+     </product>
+     <!-- End of Wheels-->
+</hateskate>

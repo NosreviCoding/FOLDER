@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>iHateSkate-Shop</title>
+    <link rel="icon" href="photos/hateskatelogo.png" type="image/x-icon">
+</head>
+<body onload="load()">
+    <header class="header">
+            <div>
+                <!--<img src="photos/skateboard.jpg" alt="" width="50px">-->
+                <img src="photos/hateskatelogo.png" alt="none" class="logo" style="margin-left: 70px; height: 90px;">
+            </div>
+                <nav class="nav-bar">
+                    <a href="index.html">HOME</a>
+                    <a href="shop.html" style="width: 25%; height: 100%; padding: 5px; background-color: #FF914D; font-size: 30px; border-radius: 5px;">SHOP</a>
+                    <a href="">ABOUT</a>
+                </nav>
+        
+    </header>
+    <div class="line"></div>
+    
+    <div class="main-body-shop">
+        <div class="filter">
+            <input type="text" placeholder="SEARCH..." id="search-bar" onkeyup="load()">
+    
+            <select name="category" id="category" onchange="load()">
+                <option value="all">All</option>
+                <option value="Board">Boards</option>
+                <option value="Trucks">Trucks</option>
+                <option value="Wheels">Wheels</option>
+            </select>
+        
+            <select name="order" id="order" onchange="load()">
+                <option value="asc">Ascending</option>
+                <option value="dsc">Descending</option>
+            </select>
+        </div>
+        
+    
+        <div id="image-res">
+    
+        </div>  
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function load(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                rtrv(this);
+            }
+        };
+        xmlhttp.open('GET','hateskate.xml',true);
+        xmlhttp.send();
+    }
+   
+
+            function rtrv(xml){ // DISPLAY ONLY
+            var txt = "";
+            var i, image, pName, price = "";
+            var input1 = document.getElementById('search-bar').value;
+            input = input1.toLowerCase();
+
+            var xmlDoc =  xml.responseXML;
+        
+            var a = xmlDoc.getElementsByTagName("Price");
+
+            var x = xmlDoc.getElementsByTagName("Name");
+            var y = xmlDoc.getElementsByTagName("Photo");
+            var z = xmlDoc.getElementsByTagName("Category");
+            
+
+            var ctg = document.getElementById("category").value;
+            var sort = document.getElementById("order").value;
+
+            var fprice = parseInt(xmlDoc.getElementsByTagName("Price")[0].textContent);
+
+            if (input==''){ // display default
+                for(i=0; i < x.length; i++){
+                if(ctg.toLowerCase() == z[i].childNodes[0].nodeValue){
+                    image = y[i].childNodes[0].nodeValue;
+                    pName = x[i].childNodes[0].nodeValue;
+                    price = a[i].childNodes[0].nodeValue;
+                    txt += "<div class='prod'>";                    
+                    txt += "<img src='"+ image +"' alt='img-result' class='img-result'>";
+                    txt += "<h2>"+ pName +"</h2>";
+                    txt += "<div class='prod-bot'>";
+                    txt += "<h2 class='presyo'>$"+ price +"</h2>";
+                    txt += "<h2 class='buy'>BUY</h2>";
+                    txt += "</div>";
+                    txt += "</div>";
+                }
+                else if(ctg.toLowerCase() == 'all'){
+                    image = y[i].childNodes[0].nodeValue;
+                    pName = x[i].childNodes[0].nodeValue;
+                    price = a[i].childNodes[0].nodeValue;
+                    txt += "<div class='prod'>";                    
+                    txt += "<img src='"+ image +"' alt='img-result' class='img-result'>";
+                    txt += "<h2>"+ pName +"</h2>";
+                    txt += "<div class='prod-bot'>";
+                    txt += "<h2 class='presyo'>$"+ price +"</h2>";
+                    txt += "<h2 class='buy'>BUY</h2>";
+                    txt += "</div>";
+                    txt += "</div>";
+                }
+                
+                }
+                    document.getElementById("image-res").innerHTML = txt;
+                }else
+                {
+                    document.getElementById("image-res").innerHTML = ''; //display on type
+                    for(var i=0; i<x.length; i++){
+                        if(x[i].childNodes[0].nodeValue.toLowerCase().includes(input) && ctg.toLowerCase() == 'all'){
+                            image = y[i].childNodes[0].nodeValue;
+                            pName = x[i].childNodes[0].nodeValue;
+                            price = a[i].childNodes[0].nodeValue;
+                            document.getElementById("image-res").innerHTML += "<div class='prod'><img src='"+ image +"' alt='img-result' class='img-result'><h2>"+ pName +"</h2><div class='prod-bot'><h2 class='presyo'>$"+ price +"</h2><h2 class='buy'>BUY</h2></div></div>";
+                        }else if(x[i].childNodes[0].nodeValue.toLowerCase().includes(input) && ctg.toLowerCase() == z[i].childNodes[0].nodeValue){
+                            image = y[i].childNodes[0].nodeValue;
+                            pName = x[i].childNodes[0].nodeValue;
+                            price = a[i].childNodes[0].nodeValue;
+                            document.getElementById("image-res").innerHTML += "<div class='prod'><img src='"+ image +"' alt='img-result' class='img-result'><h2>"+ pName +"</h2><div class='prod-bot'><h2 class='presyo'>$"+ price +"</h2><h2 class='buy'>BUY</h2></div></div>";
+                        }
+                    }
+                }
+            
+        }
+         
+</script>
